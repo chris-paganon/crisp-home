@@ -1,0 +1,16 @@
+name: crisp-home
+images:
+    - app
+environments:
+    staging:
+        host: nuxtstaging.dockiy.com
+        compose_file: docker-compose.yml
+        secrets_file: .enc.staging.env
+    production:
+        host: nuxt.dockiy.com
+        compose_file: docker-compose.yml
+        secrets_file: .enc.production.env
+hooks:
+    build: scripts/build.sh
+    start: scripts/start.sh
+    healthcheck: scripts/healthcheck.sh
