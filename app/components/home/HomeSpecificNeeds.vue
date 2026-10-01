@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ChevronRight, CodeSquare, MessageCircle } from "lucide-vue-next";
-import conversation from "@/assets/images/specific-needs/conversation.svg";
+import conversation from "@/assets/images/specific-needs/conversation.png";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { channelIcons } from "@/lib/channels";

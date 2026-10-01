@@ -4,7 +4,7 @@ import relationshipBadge from "@/assets/images/ready/g2-badge-2022.png";
 import usersBadge from "@/assets/images/ready/g2-badge-users-love.png";
 import customer from "@/assets/images/ready/man-standing-with-phone.png";
 import confetti from "@/assets/images/ready/ready-confetti.png";
-import background from "@/assets/images/ready/ready-cta-bg.png";
+import background from "@/assets/images/ready/ready-cta-bg.jpg";
 </script>
 
 <template>
