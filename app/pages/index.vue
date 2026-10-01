@@ -11,5 +11,6 @@ useSeoMeta({
     <HomeGetToKnow />
     <HomeExplore />
     <HomeCentralize />
+    <HomeTeamCapabilities />
   </div>
 </template>
