@@ -69,7 +69,7 @@ const channels = [
         <div
           v-for="conversation in conversations"
           :key="conversation.name"
-          class="flex items-center gap-2 rounded-lg bg-background p-3 shadow-inbox @sm:gap-3 @sm:p-5"
+          class="flex items-center gap-2 rounded-lg bg-background p-3 shadow-inbox @sm:gap-3 @sm:p-4.5"
         >
           <div class="relative shrink-0">
             <Avatar class="size-10 @sm:size-12">
@@ -97,10 +97,10 @@ const channels = [
           </div>
 
           <div class="min-w-0 flex-1">
-            <p class="truncate text-sm font-medium @sm:text-lg">
+            <p class="truncate text-sm/5 font-medium @sm:text-lg/6">
               {{ conversation.name }}
             </p>
-            <p class="mt-0.5 truncate text-xs text-secondary-foreground/60 @sm:text-base">
+            <p class="mt-0.5 truncate text-xs/5 text-secondary-foreground/60 @sm:text-base/5">
               {{ conversation.message }}
             </p>
           </div>
@@ -140,7 +140,7 @@ const channels = [
         </div>
       </div>
 
-      <div class="relative mx-auto mt-20 grid w-5/6 grid-cols-5 gap-3 @sm:mt-28 @sm:gap-4">
+      <div class="relative mx-auto mt-20 grid w-5/6 grid-cols-5 @sm:mt-28">
         <svg
           viewBox="0 0 500 40"
           fill="none"
@@ -152,7 +152,7 @@ const channels = [
         <div
           v-for="channel in channels"
           :key="channel.name"
-          class="flex aspect-square items-center justify-center rounded-full border border-border bg-linear-to-b from-background to-muted shadow-sm"
+          class="flex aspect-square w-4/5 items-center justify-center justify-self-center rounded-full border border-border bg-linear-to-b from-background to-muted shadow-sm"
         >
           <img
             :src="channel.icon"
