@@ -22,6 +22,7 @@ useSeoMeta({
     <HomeBenefits />
     <HomeTestimonials />
     <HomeInboxResources />
+    <HomeChooseProvider />
     <HomeComparison />
   </div>
 </template>
