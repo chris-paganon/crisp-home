@@ -23,7 +23,7 @@ const channels = [
     class="px-6 pt-12 pb-4 lg:px-8 lg:pt-16"
   >
     <div class="mx-auto max-w-7xl">
-      <div class="mb-12 text-center lg:mb-16">
+      <div class="mb-10 text-center sm:mb-12 lg:mb-16">
         <Badge variant="outline">
           <CodeSquare
             aria-hidden="true"
@@ -38,7 +38,7 @@ const channels = [
         </h2>
         <div
           aria-hidden="true"
-          class="mx-auto mt-12 flex max-w-96 items-center gap-3 text-border"
+          class="mx-auto mt-8 flex max-w-96 items-center gap-3 text-border sm:mt-12"
         >
           <span class="h-px flex-1 bg-linear-to-r from-transparent to-border" />
           <span class="h-4 w-px bg-border" />
@@ -47,7 +47,7 @@ const channels = [
           <span class="h-px flex-1 bg-linear-to-l from-transparent to-border" />
         </div>
       </div>
-      <div class="grid items-center gap-12 rounded-2xl bg-linear-to-b from-surface-blue to-primary/10 px-6 py-12 sm:rounded-3xl sm:px-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
+      <div class="grid items-center gap-8 rounded-2xl bg-linear-to-b from-surface-blue to-primary/10 px-6 py-8 sm:gap-12 sm:rounded-3xl sm:p-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
         <HomeTemplatedConversation />
         <div>
           <h3 class="text-subtitle text-primary sm:text-3xl/9">
@@ -56,7 +56,7 @@ const channels = [
           <p class="mt-5 text-lg/7 text-blue-900">
             Here are (almost) all the templates you can create using our team inbox
           </p>
-          <div class="mt-10 grid gap-2 sm:grid-cols-2">
+          <div class="mt-8 grid gap-2 sm:mt-10 sm:grid-cols-2">
             <Button
               v-for="channel in channels"
               :key="channel.name"
