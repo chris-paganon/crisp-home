@@ -36,14 +36,20 @@ import inboxScreen from "@/assets/images/explore/explore-screen.png";
         Explore our shared<br>inbox software
       </h2>
 
-      <img
-        :src="inboxScreen"
-        alt="Crisp's shared inbox with customer conversations, a support reply, and customer details in one workspace."
-        width="1094"
-        height="707"
-        loading="lazy"
-        class="mx-auto mt-8 h-auto w-full max-w-274 sm:mt-10 lg:mt-14"
-      >
+      <div class="relative isolate mx-auto mt-8 w-full max-w-274 sm:mt-10 lg:mt-14">
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-1/25 bottom-1/40 -z-10 h-1/10 rounded-xl border border-destructive/15 bg-background/30 shadow-md shadow-destructive/10"
+        />
+        <img
+          :src="inboxScreen"
+          alt="Crisp's shared inbox with customer conversations, a support reply, and customer details in one workspace."
+          width="1094"
+          height="707"
+          loading="lazy"
+          class="h-auto w-full"
+        >
+      </div>
     </div>
   </section>
 </template>
