@@ -37,9 +37,9 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
           width="464"
           height="385"
           loading="lazy"
-          class="mx-auto mb-8 h-auto w-full max-w-100 lg:absolute lg:-top-32 lg:right-0 lg:mb-0 lg:w-116 lg:max-w-none"
+          class="mx-auto mb-8 h-auto w-full max-w-100 lg:absolute lg:-top-32 lg:-right-4 lg:mb-0 lg:w-116 lg:max-w-none xl:right-0"
         >
-        <div class="relative lg:max-w-2xl">
+        <div class="relative lg:max-w-xl lg:pr-2 xl:max-w-2xl xl:pr-0">
           <h2
             id="comparison-title"
             class="text-subtitle text-blue-900 sm:text-title lg:text-5xl/14"
