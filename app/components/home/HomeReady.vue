@@ -74,7 +74,7 @@ import background from "@/assets/images/ready/ready-cta-bg.jpg";
           width="573"
           height="379"
           loading="lazy"
-          class="pointer-events-none relative ml-auto w-4/5 md:absolute md:right-1/8 md:bottom-0 md:w-9/20"
+          class="pointer-events-none relative right-1/8 ml-auto w-4/5 md:absolute md:right-1/8 md:bottom-0 md:w-9/20"
         >
       </div>
 
@@ -85,7 +85,7 @@ import background from "@/assets/images/ready/ready-cta-bg.jpg";
         width="481"
         height="122"
         loading="lazy"
-        class="pointer-events-none absolute -top-16 right-1/8 w-2/5"
+        class="pointer-events-none absolute -top-8 right-0 w-4/5 sm:-top-10 sm:right-1/8 sm:w-2/5 lg:-top-15"
       >
       <img
         :src="customer"
@@ -94,7 +94,7 @@ import background from "@/assets/images/ready/ready-cta-bg.jpg";
         width="168"
         height="462"
         loading="lazy"
-        class="pointer-events-none absolute right-4 -bottom-12 w-1/4 md:right-10 md:-bottom-24 md:w-1/8"
+        class="pointer-events-none absolute right-1 -bottom-12 w-1/4 md:right-10 md:w-1/8 lg:-bottom-18 xl:-bottom-24"
       >
     </div>
   </section>
