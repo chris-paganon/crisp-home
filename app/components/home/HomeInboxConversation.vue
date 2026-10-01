@@ -12,6 +12,8 @@ const elapsed = ref(0);
 const messageTimes = [0, 1200, 1800, 2800, 3800];
 const cycleDuration = 7000;
 
+const messageClasses = "translate-y-3 opacity-0 transition duration-400 ease-out data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none";
+
 const visibleMessages = computed(() => reducedMotion.value === "reduce"
   ? messageTimes.length
   : messageTimes.filter(time => elapsed.value >= time).length);
@@ -32,11 +34,11 @@ useRafFn(({ delta }) => {
   >
     <div
       aria-hidden="true"
-      class="conversation-content absolute inset-0 mask-b-from-85% mask-b-to-100% p-12"
+      class="conversation-content absolute inset-0 mask-b-from-85% mask-b-to-100% p-12 text-[3cqw] leading-[1.55]"
     >
       <div
-        class="conversation-message"
-        :class="{ 'conversation-message-visible': visibleMessages >= 1 }"
+        :class="messageClasses"
+        :data-visible="visibleMessages >= 1"
       >
         <div class="flex items-start gap-3">
           <img
@@ -55,15 +57,17 @@ useRafFn(({ delta }) => {
       </div>
 
       <p
-        class="conversation-message conversation-bubble mt-4 mr-13 ml-auto max-w-88 rounded-lg bg-primary p-3.5 text-primary-foreground"
-        :class="{ 'conversation-message-visible': visibleMessages >= 2 }"
+        class="conversation-bubble mt-4 mr-13 ml-auto max-w-88 rounded-lg bg-primary p-3.5 text-primary-foreground"
+        :class="messageClasses"
+        :data-visible="visibleMessages >= 2"
       >
         Hello Joe, here is an article on how to reset your password.
       </p>
 
       <div
-        class="conversation-message mt-1.5"
-        :class="{ 'conversation-message-visible': visibleMessages >= 3 }"
+        class="mt-1.5"
+        :class="messageClasses"
+        :data-visible="visibleMessages >= 3"
       >
         <div class="conversation-bubble mr-13 ml-auto max-w-88 rounded-lg bg-primary p-3.5 text-primary-foreground">
           <p class="wrap-anywhere underline underline-offset-2">
@@ -79,7 +83,7 @@ useRafFn(({ delta }) => {
           >
         </div>
         <div class="-mt-3 flex items-end justify-end gap-3">
-          <span class="flex items-center gap-1 pb-1 text-muted-foreground">
+          <span class="flex items-center gap-1 pb-1 text-[0.75em] text-muted-foreground">
             <Check class="size-4" />
             Delivered
           </span>
@@ -90,8 +94,9 @@ useRafFn(({ delta }) => {
       </div>
 
       <div
-        class="conversation-message mt-4"
-        :class="{ 'conversation-message-visible': visibleMessages >= 4 }"
+        class="mt-4"
+        :class="messageClasses"
+        :data-visible="visibleMessages >= 4"
       >
         <div class="flex items-start gap-3">
           <img
@@ -110,8 +115,9 @@ useRafFn(({ delta }) => {
       </div>
 
       <p
-        class="conversation-message conversation-bubble mt-4 mr-13 ml-auto max-w-71 rounded-lg bg-primary p-3.5 text-primary-foreground"
-        :class="{ 'conversation-message-visible': visibleMessages >= 5 }"
+        class="conversation-bubble mt-4 mr-13 ml-auto max-w-71 rounded-lg bg-primary p-3.5 text-primary-foreground"
+        :class="messageClasses"
+        :data-visible="visibleMessages >= 5"
       >
         Thanks for chatting with us. Would you mind rating our support?
       </p>
@@ -123,34 +129,9 @@ useRafFn(({ delta }) => {
 .conversation-content {
   /* Scale the conversation together so every message fits on smaller cards. */
   --spacing: calc(100cqw / 148);
-  font-size: 3cqw;
-  line-height: 1.55;
-}
-
-.conversation-content span:has(> svg) {
-  font-size: 0.75em;
-}
-
-.conversation-message {
-  opacity: 0;
-  transform: translateY(0.75rem);
-  transition: opacity 400ms ease-out, transform 400ms ease-out;
-}
-
-.conversation-message-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .conversation-bubble {
   box-shadow: 0 2rem 3rem -1rem color-mix(in srgb, var(--color-primary) 20%, transparent);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .conversation-message {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }
 </style>
