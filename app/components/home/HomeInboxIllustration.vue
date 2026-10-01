@@ -9,6 +9,9 @@ import agent6 from "@/assets/images/customers/customer-service-agent-6.png";
 import kristin from "@/assets/images/customers/kristin.png";
 import ronald from "@/assets/images/customers/ronald.png";
 import theresa from "@/assets/images/customers/theresa.png";
+import franceFlag from "@/assets/images/flags/france.svg";
+import indonesiaFlag from "@/assets/images/flags/indonesia.svg";
+import italyFlag from "@/assets/images/flags/italy.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { channelIcons } from "@/lib/channels";
 
@@ -18,7 +21,7 @@ const conversations = [
     initials: "KW",
     portrait: kristin,
     message: "Hi, I received an email about...",
-    flag: "france",
+    flag: franceFlag,
     agents: [agent1, agent2, agent3],
     status: "assigned",
     statusClass: "bg-rose-600",
@@ -28,7 +31,7 @@ const conversations = [
     initials: "TW",
     portrait: theresa,
     message: "Hello, I'm having trouble using a feature...",
-    flag: "indonesia",
+    flag: indonesiaFlag,
     agents: [agent4],
     status: "unread",
     statusClass: "bg-blue-500",
@@ -38,7 +41,7 @@ const conversations = [
     initials: "RR",
     portrait: ronald,
     message: "Hi there, I'm having trouble logging in...",
-    flag: "italy",
+    flag: italyFlag,
     agents: [agent6, agent5],
     status: "resolved",
     statusClass: "bg-emerald-500",
@@ -81,19 +84,11 @@ const channels = [
               />
               <AvatarFallback>{{ conversation.initials }}</AvatarFallback>
             </Avatar>
-            <span class="absolute -right-0.5 -bottom-0.5 flex size-4 overflow-hidden rounded-full border-2 border-background bg-background @sm:size-5">
-              <template v-if="conversation.flag === 'indonesia'">
-                <span class="absolute inset-x-0 top-0 h-1/2 bg-red-600" />
-              </template>
-              <template v-else>
-                <span
-                  class="h-full w-1/3"
-                  :class="conversation.flag === 'france' ? 'bg-blue-700' : 'bg-emerald-600'"
-                />
-                <span class="h-full w-1/3 bg-background" />
-                <span class="h-full w-1/3 bg-red-500" />
-              </template>
-            </span>
+            <img
+              :src="conversation.flag"
+              alt=""
+              class="absolute -right-0.5 -bottom-0.5 size-4 rounded-full border-2 border-background @sm:size-5"
+            >
           </div>
 
           <div class="min-w-0 flex-1">
