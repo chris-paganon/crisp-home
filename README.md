@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="app/assets/images/logo-square.png" alt="DockIY logo" width="160" />
-</p>
-
 # DockIY Nuxt template
 
 A flexible [Nuxt](https://nuxt.com/) starter for applications deployed with
