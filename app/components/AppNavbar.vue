@@ -3,6 +3,7 @@ import { Menu } from "lucide-vue-next";
 import logo from "@/assets/images/logo-horizontal.svg";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 
+// TODO: Replace with actual internal links (more in the template too)
 const navigation = [
   {
     label: "Features",

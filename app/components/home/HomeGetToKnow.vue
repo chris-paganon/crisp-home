@@ -10,6 +10,7 @@ const features = [
     description: "All your channels and inbound messages in one unified inbox.",
     icon: Gauge,
   },
+  // TODO: Replace AI Generated descriptions below
   {
     value: "customization",
     title: "More customization",
@@ -58,7 +59,7 @@ useRafFn(({ delta }) => {
     aria-labelledby="get-to-know-title"
     class="bg-background py-16 lg:pt-24 lg:pb-28"
   >
-    <div class="mx-auto grid max-w-320 gap-12 px-6 md:grid-cols-2 md:gap-16 lg:flex lg:justify-between lg:px-8">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:gap-16 lg:flex lg:justify-between lg:px-8">
       <div
         ref="featurePanel"
         class="lg:w-114 lg:shrink-0 lg:pt-6"
@@ -122,7 +123,7 @@ useRafFn(({ delta }) => {
         width="592"
         height="730"
         loading="lazy"
-        class="mx-auto h-auto w-full max-w-148 self-start lg:mx-0 lg:w-148"
+        class="mx-auto h-auto w-full max-w-148 self-center lg:mx-0 lg:w-148"
       >
     </div>
   </section>
