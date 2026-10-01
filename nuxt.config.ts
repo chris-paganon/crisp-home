@@ -8,7 +8,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: "icon", href: "/favicon.ico" },
+        { rel: "icon", href: "/favicon.ico", sizes: "any" },
+        { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
         {
           rel: "preload",
           href: "/fonts/aeonikpro/aeonikpro_regular.woff2",
