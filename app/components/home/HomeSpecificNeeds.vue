@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ChevronRight, CodeSquare, MessageCircle } from "lucide-vue-next";
-import conversation from "@/assets/images/specific-needs/conversation.png";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { channelIcons } from "@/lib/channels";
@@ -49,14 +48,7 @@ const channels = [
         </div>
       </div>
       <div class="grid items-center gap-12 rounded-2xl bg-linear-to-b from-surface-blue to-primary/10 px-6 py-12 sm:rounded-3xl sm:px-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
-        <img
-          :src="conversation"
-          alt="Joe asks about the privacy policy, receives a templated WhatsApp message and thanks the team for the quick answer."
-          width="547"
-          height="544"
-          loading="lazy"
-          class="mx-auto h-auto w-full max-w-120"
-        >
+        <HomeTemplatedConversation />
         <div>
           <h3 class="text-subtitle text-primary sm:text-3xl/9">
             <span>Templated messages</span><span class="text-blue-900"> available for all your inbound messages, no matter the channel.</span>
