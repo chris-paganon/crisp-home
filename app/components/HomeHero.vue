@@ -57,7 +57,7 @@ import heroInterface from "@/assets/images/hero-ui-elements.svg";
       class="pointer-events-none px-6"
     >
       <div
-        class="relative left-1/2 mt-1 aspect-[1243/647] w-full max-w-310 min-w-160 -translate-x-1/2 md:min-w-0 lg:ml-6"
+        class="relative left-1/2 mt-1 aspect-48/25 w-full max-w-310 min-w-160 -translate-x-1/2  md:min-w-0 lg:ml-6"
       >
         <img
           :src="heroInterface"
