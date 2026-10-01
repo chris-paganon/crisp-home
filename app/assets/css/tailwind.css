@@ -47,9 +47,6 @@
   --radius-xl: calc(var(--radius) + 8px);
   --radius-2xl: calc(var(--radius) + 16px);
   --radius-3xl: calc(var(--radius) + 48px);
-  --color-surface-blue: var(--surface-blue);
-  --color-surface-green: var(--surface-green);
-  --color-surface-warm: var(--surface-warm);
   --shadow-button: 0 1px 2px color-mix(in srgb, var(--foreground) 8%, transparent), inset 0 2px 0 color-mix(in srgb, var(--primary-foreground) 20%, transparent);
   --shadow-inbox: 0 2rem 3rem -0.5rem color-mix(in srgb, var(--chart-3) 24%, transparent);
   --text-display: 3.5rem;
@@ -99,10 +96,6 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
-  /* The three illustrated section backgrounds cannot share one muted token. */
-  --surface-blue: #ebfaff;
-  --surface-green: #fcfef6;
-  --surface-warm: #fffcec;
 }
 
 /* Also usable locally on the homepage's navy promotional panels. */
@@ -138,9 +131,6 @@
   --sidebar-accent-foreground: var(--accent-foreground);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
-  --surface-blue: var(--accent);
-  --surface-green: var(--card);
-  --surface-warm: var(--card);
 }
 
 @layer base {
@@ -157,5 +147,22 @@
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading font-medium;
+  }
+}
+
+@layer utilities {
+  .orange-gradient {
+    background: linear-gradient(180deg, rgba(255, 225, 68, 0.1) 0%, rgba(255, 145, 0, 0.1) 100%);
+  }
+  .green-gradient {
+    background: linear-gradient(180deg, rgba(226, 250, 168, 0.1) 0%, rgba(118, 176, 84, 0.1) 100%);
+  }
+
+  .sky-gradient {
+    background: linear-gradient(180deg, rgba(56, 215, 255, 0.1) 0%, rgba(25, 114, 245, 0.1) 100%);
+  }
+
+  .blue-gray-gradient {
+    background: linear-gradient(180deg, rgba(185, 192, 212, 0.1) 0%, rgba(25, 114, 245, 0.1) 100%);
   }
 }

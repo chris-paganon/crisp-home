@@ -13,7 +13,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
     class="px-6 lg:px-8"
   >
     <div class="mx-auto max-w-7xl space-y-4">
-      <div class="grid items-center gap-10 rounded-2xl bg-linear-to-b from-surface-green to-chart-2/10 px-6 py-12 sm:rounded-3xl sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-12 lg:py-16">
+      <div class="from-surface-green/10 grid items-center gap-10 rounded-2xl bg-linear-to-b to-[#76B054]/10 px-6 py-12 sm:rounded-3xl sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-12 lg:py-16">
         <img
           :src="illustration"
           alt="A shared inbox brings messaging channels, customer details, and team conversations together."

@@ -57,7 +57,7 @@ const { messageClasses, visibleMessages } = useConversationAnimation(conversatio
             <Check class="size-3.5" />
             Delivered to WhatsApp
           </span>
-          <div class="flex size-8 shrink-0 justify-center overflow-hidden rounded-full bg-linear-to-b from-surface-blue to-primary/30 @sm:size-9">
+          <div class="blue-gray-gradient flex size-8 shrink-0 justify-center overflow-hidden rounded-full @sm:size-9">
             <img
               :src="agent"
               alt=""

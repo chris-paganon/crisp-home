@@ -12,7 +12,7 @@ const { messageClasses, visibleMessages } = useConversationAnimation(conversatio
     ref="conversation"
     role="img"
     aria-label="Joe asks to reset his password. An automated assistant replies with a password recovery article, Joe says thank you, and the assistant asks him to rate the support."
-    class="@container relative isolate aspect-4/5 w-full max-w-148 overflow-hidden rounded-2xl bg-linear-to-b from-surface-blue to-primary/10"
+    class="blue-gray-gradient @container relative isolate aspect-4/5 w-full max-w-148 overflow-hidden rounded-2xl"
   >
     <div
       aria-hidden="true"

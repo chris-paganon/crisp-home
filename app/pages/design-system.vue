@@ -26,9 +26,6 @@ const swatches = [
   { name: "Foreground", color: "bg-foreground" },
   { name: "Muted", color: "bg-muted" },
   { name: "Accent", color: "bg-accent" },
-  { name: "Blue section", color: "bg-surface-blue" },
-  { name: "Green section", color: "bg-surface-green" },
-  { name: "Warm section", color: "bg-surface-warm" },
 ];
 </script>
 
@@ -214,27 +211,6 @@ const swatches = [
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-    </section>
-
-    <section
-      aria-label="Section backgrounds"
-      class="grid gap-6 sm:grid-cols-3"
-    >
-      <div class="rounded-2xl bg-linear-to-b from-surface-blue to-primary/10 p-8">
-        <h2 class="text-subtitle">
-          Shared inbox
-        </h2>
-      </div>
-      <div class="rounded-2xl bg-surface-green p-8">
-        <h2 class="text-subtitle text-chart-3">
-          All your channels
-        </h2>
-      </div>
-      <div class="rounded-2xl bg-surface-warm p-8">
-        <h2 class="text-subtitle text-chart-4">
-          Explore Crisp
-        </h2>
-      </div>
     </section>
 
     <section

@@ -47,7 +47,7 @@ const channels = [
           <span class="h-px flex-1 bg-linear-to-l from-transparent to-border" />
         </div>
       </div>
-      <div class="grid items-center gap-8 rounded-2xl bg-linear-to-b from-surface-blue to-primary/10 px-6 py-8 sm:gap-12 sm:rounded-3xl sm:p-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
+      <div class="sky-gradient grid items-center gap-8 rounded-2xl px-6 py-8 sm:gap-12 sm:rounded-3xl sm:p-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
         <HomeTemplatedConversation />
         <div>
           <h3 class="text-subtitle text-primary sm:text-3xl/9">

@@ -72,7 +72,7 @@ const channels = [
         </div>
       </div>
 
-      <div class="grid items-center gap-12 overflow-hidden rounded-2xl bg-linear-to-b from-surface-green to-chart-2/10 px-6 py-12 sm:rounded-3xl sm:px-10 lg:grid-cols-2 lg:p-12 xl:gap-20 xl:p-20">
+      <div class="from-surface-green/10 grid items-center gap-12 overflow-hidden rounded-2xl bg-linear-to-b to-[#76B054]/10 px-6 py-12 sm:rounded-3xl sm:px-10 lg:grid-cols-2 lg:p-12 xl:gap-20 xl:p-20">
         <div class="text-chart-3">
           <h3 class="text-lead sm:text-subtitle lg:text-3xl/9">
             <span class="text-chart-2">A shared inbox</span> for all your inbound messages, no matter the channel.
