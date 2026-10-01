@@ -51,7 +51,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
             <a href="https://crisp.chat/en/alternatives/">See more shared inboxes compared <ChevronRight aria-hidden="true" /></a>
           </Button>
         </div>
-        <div class="mx-auto grid w-full max-w-108 grid-cols-2 gap-5">
+        <div class="mx-auto grid w-full max-w-108 gap-5 sm:grid-cols-2">
           <a
             v-for="(competitor, index) in competitors"
             :key="competitor"
