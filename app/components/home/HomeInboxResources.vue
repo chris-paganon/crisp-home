@@ -57,7 +57,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
             :key="competitor"
             :href="`https://crisp.chat/en/alternatives/${competitor}/`"
             :aria-label="`Compare Crisp with ${competitor}`"
-            class="flex flex-col items-center gap-8 rounded-sm bg-background px-4 py-10 text-secondary-foreground transition-shadow first:shadow-xl hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
+            class="flex flex-col items-center gap-8 rounded-sm bg-background px-4 py-10 text-secondary-foreground transition-shadow hover:shadow-xl focus-visible:ring-2 focus-visible:ring-ring motion-reduce:transition-none"
           >
             <img
               :src="channelIcons.whatsapp"
