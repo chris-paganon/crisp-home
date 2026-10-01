@@ -60,7 +60,7 @@ useRafFn(({ delta }) => {
 <template>
   <section
     aria-labelledby="get-to-know-title"
-    class="bg-background py-16 lg:pt-24 lg:pb-28"
+    class="bg-background py-12 md:py-16 lg:pt-24 lg:pb-28"
   >
     <div class="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2 md:gap-16 lg:flex lg:justify-between lg:px-8">
       <div

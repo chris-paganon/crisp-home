@@ -26,10 +26,10 @@ const sparkles = [
 <template>
   <section
     aria-labelledby="centralize-title"
-    class="bg-background px-6 pt-10 pb-16 lg:px-8 lg:pt-12 lg:pb-28"
+    class="bg-background px-6 pt-10 pb-12 md:pb-16 lg:px-8 lg:pt-12 lg:pb-28"
   >
     <div class="mx-auto max-w-7xl">
-      <div class="relative mb-16 text-center">
+      <div class="relative mb-10 text-center md:mb-16">
         <svg
           v-for="side in ['left', 'right']"
           :key="side"
@@ -63,7 +63,7 @@ const sparkles = [
         </h2>
         <div
           aria-hidden="true"
-          class="mx-auto mt-12 flex max-w-100 items-center justify-center gap-1.5 text-border"
+          class="mx-auto mt-8 flex max-w-100 items-center justify-center gap-1.5 text-border md:mt-12"
         >
           <span class="h-px flex-1 bg-linear-to-r from-transparent to-border" />
           <Plus class="size-4 stroke-1" />

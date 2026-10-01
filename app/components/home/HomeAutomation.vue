@@ -72,7 +72,7 @@ const tabs = [
             v-for="item in tabs"
             :key="item.id"
             :value="item.id"
-            class="mt-16 min-h-64 sm:mt-20"
+            class="my-8 min-h-64 sm:my-12 md:my-16 lg:my-20"
           >
             <template v-if="item.id === 'reply'">
               <div class="flex items-end gap-2 sm:ml-8">
@@ -106,7 +106,7 @@ const tabs = [
         </Tabs>
         <h2
           id="magic-reply-title"
-          class="relative mx-auto mt-16 text-center text-subtitle sm:text-title lg:text-5xl/14"
+          class="relative mx-auto text-center text-subtitle sm:text-title lg:text-5xl/14"
         >
           Leverage the power of AI<br>with <span class="bg-linear-to-r from-cyan-200 via-cyan-400 to-primary bg-clip-text text-transparent">MagicReply</span>
         </h2>

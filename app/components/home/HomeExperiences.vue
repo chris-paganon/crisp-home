@@ -36,16 +36,16 @@ const features = [
         </h2>
       </div>
       <div class="mx-auto grid max-w-300 gap-6 lg:grid-cols-[1fr_2fr] lg:gap-8">
-        <Card class="gap-0 overflow-hidden lg:row-span-2">
+        <Card class="gap-0 overflow-hidden pt-2 sm:pt-8 lg:row-span-2">
           <img
             :src="contacts"
             alt="Lucas Ordonéz’s contact profile with contact details and video and audio call options."
             width="384"
             height="332"
             loading="lazy"
-            class="mx-auto h-auto w-full max-w-96"
+            class="mx-auto h-auto w-full max-w-82 sm:max-w-96"
           >
-          <CardHeader class="mt-8 gap-2 lg:mt-auto">
+          <CardHeader class="mt-4 gap-2 sm:mt-8 lg:mt-auto">
             <CardTitle>Contacts</CardTitle>
             <CardDescription>Lorem ipsum dolor sit amet consectetur.<br>Nec nunc arcu magna orci.</CardDescription>
           </CardHeader>

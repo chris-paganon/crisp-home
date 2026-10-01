@@ -7,7 +7,7 @@ import inboxScreen from "@/assets/images/explore/explore-screen.png";
 <template>
   <section
     aria-labelledby="explore-title"
-    class="bg-background px-6 pb-16 lg:px-8 lg:pb-28"
+    class="bg-background px-6 pb-12 md:pb-16 lg:px-8 lg:pb-28"
   >
     <div class="relative isolate mx-auto max-w-7xl overflow-hidden rounded-2xl bg-linear-to-b from-surface-warm to-orange-50 px-4 pt-40 pb-6 sm:rounded-3xl sm:px-10 sm:pt-56 sm:pb-10 lg:px-22 lg:pt-72 lg:pb-12">
       <img

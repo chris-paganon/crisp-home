@@ -30,7 +30,7 @@ const features = [
     class="bg-background px-6 pt-12 pb-16 lg:px-8 lg:pt-32 lg:pb-28"
   >
     <div class="mx-auto max-w-7xl">
-      <div class="mb-12 text-center lg:mb-20">
+      <div class="mb-8 text-center md:pb-12 lg:mb-20">
         <Badge variant="outline">
           <UsersRound
             aria-hidden="true"
@@ -85,7 +85,7 @@ const features = [
           >
           <div
             v-else
-            class="relative mx-auto flex h-64 w-full max-w-96 items-center"
+            class="relative mx-auto flex h-36 w-full max-w-96 items-center sm:h-64"
           >
             <img
               :src="voiceNoteBackground"
@@ -94,7 +94,7 @@ const features = [
               width="383"
               height="168"
               loading="lazy"
-              class="pointer-events-none absolute inset-x-0 h-auto w-full mask-x-from-50% mask-x-to-100%"
+              class="pointer-events-none absolute inset-x-0 h-32 w-full mask-x-from-50% mask-x-to-100% sm:h-auto"
             >
             <img
               :src="voiceNote"
@@ -114,9 +114,9 @@ const features = [
             width="350"
             height="303"
             loading="lazy"
-            class="mx-auto h-auto w-full max-w-87.5 px-4 lg:px-0"
+            class="mx-auto h-auto w-full max-w-76 px-4 sm:max-w-88 lg:px-0"
           >
-          <CardHeader class="mt-10 gap-2 lg:mt-auto lg:pt-10">
+          <CardHeader class="mt-6 gap-2 sm:mt-10 lg:mt-auto lg:pt-10">
             <CardTitle>Auto-assign</CardTitle>
             <CardDescription>
               Build routing rules that will fasten conversations’ assignment.
