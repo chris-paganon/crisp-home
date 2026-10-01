@@ -51,6 +51,7 @@
   --color-surface-green: var(--surface-green);
   --color-surface-warm: var(--surface-warm);
   --shadow-button: 0 1px 2px color-mix(in srgb, var(--foreground) 8%, transparent), inset 0 2px 0 color-mix(in srgb, var(--primary-foreground) 20%, transparent);
+  --shadow-inbox: 0 2rem 3rem -0.5rem color-mix(in srgb, var(--chart-3) 24%, transparent);
   --text-display: 3.5rem;
   --text-display--line-height: 1.15;
   --text-display--letter-spacing: -0.025em;
