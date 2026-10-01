@@ -7,9 +7,11 @@ const conversation = useTemplateRef<HTMLDivElement>("conversation");
 const isVisible = useElementVisibility(conversation);
 const documentVisibility = useDocumentVisibility();
 const reducedMotion = usePreferredReducedMotion();
+
 const elapsed = ref(0);
-const messageTimes = [0, 1400, 2800, 4600, 6000];
-const cycleDuration = 12000;
+const messageTimes = [0, 1200, 1800, 2800, 3800];
+const cycleDuration = 7000;
+
 const visibleMessages = computed(() => reducedMotion.value === "reduce"
   ? messageTimes.length
   : messageTimes.filter(time => elapsed.value >= time).length);
