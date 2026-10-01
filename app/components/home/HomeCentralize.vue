@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ChevronRight, Layers, MessageCircle, Plus } from "lucide-vue-next";
+import { ChevronRight, Layers, Plus } from "lucide-vue-next";
+import crispLogoRound from "@/assets/images/logo-round.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { channelIcons } from "@/lib/channels";
@@ -12,7 +13,7 @@ const channels = [
   { name: "Viber Business", icon: channelIcons.viber, href: "https://crisp.chat/en/integrations/viber/" },
   { name: "Facebook Messenger", icon: channelIcons.messenger, href: "https://crisp.chat/en/integrations/messenger/" },
   { name: "Instagram DM", icon: channelIcons.instagram, href: "https://crisp.chat/en/integrations/instagram/" },
-  { name: "Chat Widget", icon: null, href: "https://crisp.chat/en/livechat/" },
+  { name: "Chat Widget", icon: crispLogoRound, href: "https://crisp.chat/en/livechat/" },
   { name: "SMS Inbox", icon: channelIcons.sms, href: "https://crisp.chat/en/integrations/twilio/" },
 ];
 
@@ -94,18 +95,11 @@ const sparkles = [
               >
                 <a :href="channel.href">
                   <img
-                    v-if="channel.icon"
                     :src="channel.icon"
                     alt=""
                     class="size-4 shrink-0 object-contain sm:size-5"
+                    :class="{ 'scale-150': channel.icon === crispLogoRound }"
                   >
-                  <span
-                    v-else
-                    aria-hidden="true"
-                    class="flex size-4 shrink-0 items-center justify-center rounded-full bg-primary sm:size-5"
-                  >
-                    <MessageCircle class="size-2.5 fill-background stroke-background sm:size-3" />
-                  </span>
                   <span class="min-w-0 text-left whitespace-normal">{{ channel.name }}</span>
                   <ChevronRight
                     aria-hidden="true"
