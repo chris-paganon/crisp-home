@@ -66,7 +66,7 @@ const columns: Testimonial[][] = [
               v-if="card.type === 'photo'"
               href="https://crisp.chat/en/testimonials/"
               :aria-label="`Read the ${card.company} testimonial`"
-              :class="['group relative block overflow-hidden rounded-md', card.aspect]"
+              :class="['group relative block shrink-0 overflow-hidden rounded-md', card.aspect]"
             >
               <img
                 :src="card.photo"
@@ -85,7 +85,7 @@ const columns: Testimonial[][] = [
             </a>
             <figure
               v-else
-              :class="['rounded-md border border-border p-6', card.type === 'quote' ? 'bg-card text-center' : 'bg-background', index === 0 && cardIndex === 1 ? 'max-md:-order-1' : '']"
+              :class="['rounded-md border border-border p-6', card.type === 'quote' ? 'bg-card text-center' : 'bg-background', card.type === 'person' ? 'shrink-0' : 'md:flex-1', index === 0 && cardIndex === 1 ? 'max-md:-order-1' : '']"
             >
               <figcaption
                 v-if="card.type === 'person'"
