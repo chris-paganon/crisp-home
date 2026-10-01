@@ -20,9 +20,9 @@ useSeoMeta({
     <HomeSpecificNeeds />
     <HomeAutomation />
     <HomeBenefits />
+    <HomeComparison />
     <HomeTestimonials />
     <HomeInboxResources />
     <HomeChooseProvider />
-    <HomeComparison />
   </div>
 </template>
