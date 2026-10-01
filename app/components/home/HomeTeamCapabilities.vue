@@ -47,11 +47,11 @@ const features = [
         </h2>
       </div>
 
-      <div class="mx-auto grid max-w-300 gap-6 lg:grid-cols-3 lg:gap-8">
+      <div class="mx-auto grid max-w-300 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
         <Card
           v-for="feature in features"
           :key="feature.id"
-          class="gap-0 overflow-hidden py-0 sm:grid sm:grid-cols-2 sm:items-center lg:col-span-2 lg:min-h-64"
+          class="gap-0 overflow-hidden py-0 sm:grid sm:grid-cols-2 sm:items-center lg:h-64"
         >
           <div class="space-y-7 py-10">
             <CardHeader class="gap-2">
@@ -94,7 +94,7 @@ const features = [
               width="383"
               height="168"
               loading="lazy"
-              class="pointer-events-none absolute inset-x-0 h-auto w-full"
+              class="pointer-events-none absolute inset-x-0 h-auto w-full mask-x-from-50% mask-x-to-100%"
             >
             <img
               :src="voiceNote"
@@ -102,19 +102,19 @@ const features = [
               width="325"
               height="80"
               loading="lazy"
-              class="relative h-auto w-5/6"
+              class="relative ml-8 h-auto w-5/6"
             >
           </div>
         </Card>
 
-        <Card class="gap-0 overflow-hidden lg:col-start-3 lg:row-span-2 lg:row-start-1">
+        <Card class="gap-0 overflow-hidden lg:col-start-2 lg:row-span-2 lg:row-start-1">
           <img
             :src="routing"
             alt="A customer’s delivery question routed to the right team among Sales, Accounting, and Support."
             width="350"
             height="303"
             loading="lazy"
-            class="mx-auto h-auto w-full max-w-87.5 px-4 lg:px-3"
+            class="mx-auto h-auto w-full max-w-87.5 px-4 lg:px-0"
           >
           <CardHeader class="mt-10 gap-2 lg:mt-auto lg:pt-10">
             <CardTitle>Auto-assign</CardTitle>
