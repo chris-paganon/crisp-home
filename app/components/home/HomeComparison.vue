@@ -71,13 +71,13 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
         </p>
         <TabsList
           aria-label="Choose a competitor to compare with Crisp"
-          class="grid h-auto w-full grid-cols-2 gap-1 rounded-xl bg-primary/5 p-1 sm:grid-cols-4"
+          class="flex h-auto w-full snap-x snap-proximity justify-start gap-1 overflow-x-auto rounded-xl bg-primary/5 p-1 [scrollbar-width:none] sm:grid sm:grid-cols-4 sm:overflow-visible"
         >
           <TabsTrigger
             v-for="provider in competitors"
             :key="provider.slug"
             :value="provider.slug"
-            class="min-h-11 px-2 text-base data-[state=active]:text-primary"
+            class="min-h-11 flex-none basis-2/5 snap-start px-2 text-base data-[state=active]:text-primary sm:basis-auto"
           >
             {{ provider.name }}
           </TabsTrigger>
