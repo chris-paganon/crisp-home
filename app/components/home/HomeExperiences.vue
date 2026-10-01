@@ -45,7 +45,7 @@ const features = [
             loading="lazy"
             class="mx-auto h-auto w-full max-w-96"
           >
-          <CardHeader class="mt-8 gap-2 lg:mt-auto lg:pt-8">
+          <CardHeader class="mt-8 gap-2 lg:mt-auto">
             <CardTitle>Contacts</CardTitle>
             <CardDescription>Lorem ipsum dolor sit amet consectetur.<br>Nec nunc arcu magna orci.</CardDescription>
           </CardHeader>

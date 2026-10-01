@@ -48,7 +48,7 @@ const channels = [
           <span class="h-px flex-1 bg-linear-to-l from-transparent to-border" />
         </div>
       </div>
-      <div class="grid items-center gap-12 rounded-3xl bg-linear-to-b from-surface-blue to-accent px-6 py-12 sm:px-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
+      <div class="grid items-center gap-12 rounded-3xl bg-linear-to-b from-surface-blue to-primary/10 px-6 py-12 sm:px-12 lg:grid-cols-2 lg:gap-24 lg:p-20">
         <img
           :src="conversation"
           alt="Joe asks about the privacy policy, receives a templated WhatsApp message and thanks the team for the quick answer."
