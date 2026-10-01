@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Archive, Clock3, Gauge, UserRound } from "lucide-vue-next";
 import inboxDiscussion from "@/assets/images/inbox-discussion.png";
+import featureBackground from "@/assets/images/get-to-know/bg-element-computer.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const features = [
@@ -84,8 +85,16 @@ useRafFn(({ delta }) => {
             :key="feature.id"
             :value="feature.id"
             variant="feature"
-            class="group"
+            class="group relative isolate overflow-hidden"
           >
+            <img
+              :src="featureBackground"
+              alt=""
+              aria-hidden="true"
+              width="195"
+              height="149"
+              class="pointer-events-none absolute top-1 right-1 -z-10 h-auto w-49 opacity-0 group-data-[state=open]:opacity-100"
+            >
             <AccordionTrigger
               class="gap-0 py-6 text-lg data-[state=open]:pb-2 lg:text-xl"
               @click="progress = 0"
