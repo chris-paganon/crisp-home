@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ArrowRight, Check } from "lucide-vue-next";
-import agent1 from "@/assets/images/customers/customer-service-agent-1.png";
-import agent2 from "@/assets/images/customers/customer-service-agent-2.png";
-import agent3 from "@/assets/images/customers/customer-service-agent-3.png";
-import agent4 from "@/assets/images/customers/customer-service-agent-4.png";
-import agent5 from "@/assets/images/customers/customer-service-agent-5.png";
-import agent6 from "@/assets/images/customers/customer-service-agent-6.png";
+import agent1 from "@/assets/images/customers/customer-service-agent-1.jpg";
+import agent2 from "@/assets/images/customers/customer-service-agent-2.jpg";
+import agent3 from "@/assets/images/customers/customer-service-agent-3.jpg";
+import agent4 from "@/assets/images/customers/customer-service-agent-4.jpg";
+import agent5 from "@/assets/images/customers/customer-service-agent-5.jpg";
+import agent6 from "@/assets/images/customers/customer-service-agent-6.jpg";
 import kristin from "@/assets/images/customers/kristin.png";
 import ronald from "@/assets/images/customers/ronald.png";
 import theresa from "@/assets/images/customers/theresa.png";

@@ -13,7 +13,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
     class="px-6 lg:px-8"
   >
     <div class="mx-auto max-w-7xl space-y-4">
-      <div class="grid items-center gap-10 rounded-3xl bg-linear-to-b from-surface-green to-chart-2/10 px-6 py-12 sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-12 lg:py-16">
+      <div class="grid items-center gap-10 rounded-2xl bg-linear-to-b from-surface-green to-chart-2/10 px-6 py-12 sm:rounded-3xl sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-12 lg:py-16">
         <img
           :src="illustration"
           alt="A shared inbox brings messaging channels, customer details, and team conversations together."
@@ -32,7 +32,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
           </p>
         </div>
       </div>
-      <div class="grid items-center gap-12 rounded-3xl bg-linear-to-b from-muted to-primary/10 px-6 py-12 sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-20 lg:py-16">
+      <div class="grid items-center gap-12 rounded-2xl bg-linear-to-b from-muted to-primary/10 px-6 py-12 sm:rounded-3xl sm:px-10 md:grid-cols-2 lg:gap-24 lg:px-20 lg:py-16">
         <div>
           <h2 class="text-subtitle text-blue-900 sm:text-3xl/9">
             Compare the best shared inbox<br class="hidden lg:block"> solutions in 2023

@@ -13,7 +13,7 @@ import background from "@/assets/images/ready/ready-cta-bg.png";
     class="px-6 pb-24 lg:px-8 lg:pb-40"
   >
     <div class="relative mx-auto max-w-7xl">
-      <div class="dark relative isolate overflow-hidden rounded-3xl bg-background text-foreground">
+      <div class="dark relative isolate overflow-hidden rounded-2xl bg-background text-foreground sm:rounded-3xl">
         <div
           aria-hidden="true"
           class="pointer-events-none absolute inset-0 -z-10"

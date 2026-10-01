@@ -24,7 +24,7 @@ const values = [
     aria-labelledby="comparison-title"
     class="px-6 pb-16 lg:px-8 lg:pb-24"
   >
-    <div class="relative mx-auto max-w-7xl rounded-3xl bg-linear-to-b from-muted to-primary/10 px-6 py-12 sm:px-8 lg:py-20">
+    <div class="relative mx-auto max-w-7xl rounded-2xl bg-linear-to-b from-muted to-primary/10 px-6 py-12 sm:rounded-3xl sm:px-8 lg:py-20">
       <div class="relative px-2 sm:px-12">
         <img
           :src="tabletMan"

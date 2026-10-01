@@ -20,13 +20,13 @@ const tabs = [
     <div class="relative mx-auto max-w-7xl">
       <section
         aria-labelledby="magic-reply-title"
-        class="dark relative isolate rounded-3xl border-2 bg-background px-6 py-12 text-foreground sm:px-12 lg:py-24"
+        class="dark relative isolate rounded-2xl border-2 bg-background px-6 py-12 text-foreground sm:rounded-3xl sm:px-12 lg:py-24"
       >
         <svg
           aria-hidden="true"
           viewBox="0 0 1280 776"
           preserveAspectRatio="none"
-          class="pointer-events-none absolute inset-0 -z-10 size-full rounded-3xl text-border"
+          class="pointer-events-none absolute inset-0 -z-10 size-full rounded-2xl text-border sm:rounded-3xl"
         >
           <path
             d="M100 0V40Q100 60 120 80L145 108Q162 125 162 145V776M1180 0V40Q1180 60 1160 80L1135 108Q1118 125 1118 145V640Q1118 660 1138 680L1160 704Q1180 722 1180 742V776"
@@ -123,7 +123,7 @@ const tabs = [
 
       <section
         aria-labelledby="workflows-title"
-        class="relative isolate mt-4 overflow-hidden rounded-3xl bg-muted px-6 pt-12 pb-16 sm:px-12 lg:pb-24"
+        class="relative isolate mt-4 overflow-hidden rounded-2xl bg-muted px-6 pt-12 pb-16 sm:rounded-3xl sm:px-12 lg:pb-24"
       >
         <div
           aria-hidden="true"
