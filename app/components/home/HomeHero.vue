@@ -64,16 +64,61 @@ import heroInterface from "@/assets/images/hero/hero-ui-elements.svg";
           alt=""
           width="923"
           height="393"
-          class="absolute top-0 left-1/2 w-3/4 -translate-x-1/2"
+          class="hero-interface absolute top-0 left-1/2 w-3/4 -translate-x-1/2"
         >
         <img
           :src="heroComposition"
           alt=""
           width="1243"
           height="459"
-          class="absolute inset-x-0 bottom-0 w-full"
+          class="hero-composition absolute inset-x-0 bottom-0 w-full"
         >
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+/* One entrance per page load; scrolling and hovering never restart it. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-composition {
+    transform-origin: center bottom;
+    animation: hero-rise 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.15s 1 both;
+  }
+
+  .hero-interface {
+    transform-origin: center bottom;
+    animation: hero-settle 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.35s 1 both;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--spacing) * 12)) scale(0.94) rotate(-2deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(calc(var(--spacing) * -1)) scale(1.01) rotate(0.3deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-settle {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--spacing) * -8)) scale(0.9) rotate(2deg);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(var(--spacing)) scale(1.015) rotate(-0.4deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
