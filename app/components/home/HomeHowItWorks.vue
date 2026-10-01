@@ -39,7 +39,9 @@ const steps = [
           <span class="relative mx-auto -mt-10 flex size-20 items-center justify-center rounded-full border border-border bg-card text-2xl text-muted-foreground shadow-xs">
             {{ index + 1 }}
           </span>
-          <h3 class="mx-auto mt-5 max-w-60 text-2xl/8 lg:text-3xl/9">
+          <h3
+            class="mx-auto mt-5 max-w-68 text-2xl/8 lg:text-3xl/9"
+          >
             {{ step.title }}
           </h3>
         </li>
