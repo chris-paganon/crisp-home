@@ -3,6 +3,7 @@ import { Check, ChevronRight, X } from "lucide-vue-next";
 import tabletMan from "@/assets/images/doubting/tablet-man-bun.png";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const providers = [
   { name: "Front", slug: "front" },
@@ -17,6 +18,10 @@ const values = [
   { name: "Value 3", supported: [false, false, true, true, true] },
   { name: "Value 4", supported: [true, true, true, true, true] },
 ];
+const competitors = providers
+  .map((provider, index) => ({ ...provider, index }))
+  .filter(provider => provider.slug !== "crisp");
+const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
 </script>
 
 <template>
@@ -57,71 +62,172 @@ const values = [
           </div>
         </div>
       </div>
-      <Table class="mt-16 min-w-300 table-fixed text-base text-secondary-foreground">
-        <TableHeader>
-          <TableRow class="border-0 hover:bg-transparent">
-            <TableHead class="w-1/4">
-              <span class="sr-only">Feature</span>
-            </TableHead>
-            <TableHead
-              v-for="provider in providers"
-              :key="provider.slug"
-              scope="col"
-              class="border-b border-primary/15 px-0 py-5 text-xl font-medium text-foreground"
-            >
-              {{ provider.name }}
-            </TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow
-            v-for="value in values"
-            :key="value.name"
-            class="border-primary/15 hover:bg-transparent"
+      <Tabs
+        default-value="front"
+        class="mt-12 gap-5 lg:hidden"
+      >
+        <p class="font-medium text-secondary-foreground">
+          Compare Crisp with
+        </p>
+        <TabsList
+          aria-label="Choose a competitor to compare with Crisp"
+          class="grid h-auto w-full grid-cols-2 gap-1 rounded-xl bg-primary/5 p-1 sm:grid-cols-4"
+        >
+          <TabsTrigger
+            v-for="provider in competitors"
+            :key="provider.slug"
+            :value="provider.slug"
+            class="min-h-11 px-2 text-base data-[state=active]:text-primary"
           >
-            <TableCell class="p-4 sm:px-12">
-              {{ value.name }}
-            </TableCell>
-            <TableCell
-              v-for="(supported, index) in value.supported"
-              :key="providers[index]!.slug"
-              class="px-0 py-4"
-            >
-              <span :class="['inline-flex size-5 items-center justify-center rounded-full', supported ? 'bg-primary text-primary-foreground' : 'bg-muted-foreground/40 text-primary-foreground']">
-                <component
-                  :is="supported ? Check : X"
-                  aria-hidden="true"
-                  class="size-3 stroke-3"
-                />
-                <span class="sr-only">{{ supported ? 'Included' : 'Not included' }}</span>
-              </span>
-            </TableCell>
-          </TableRow>
-        </TableBody>
-        <TableFooter class="border-primary/15 bg-transparent font-normal">
-          <TableRow class="hover:bg-transparent">
-            <TableCell class="px-4 py-5 whitespace-nowrap sm:px-12">
-              See detailed comparison
-            </TableCell>
-            <TableCell
-              v-for="provider in providers"
-              :key="provider.slug"
-              class="px-0 py-5"
-            >
-              <Button
-                v-if="provider.slug !== 'crisp'"
-                as-child
-                variant="link"
+            {{ provider.name }}
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent
+          v-for="provider in competitors"
+          :key="provider.slug"
+          :value="provider.slug"
+          class="rounded-sm focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <table class="w-full table-fixed border-collapse text-base text-secondary-foreground">
+            <caption class="sr-only">
+              Crisp compared with {{ provider.name }}
+            </caption>
+            <colgroup><col class="w-3/10"><col class="w-3/10"><col class="w-2/5"></colgroup>
+            <thead>
+              <tr class="border-b border-primary/15">
+                <th
+                  scope="col"
+                  class="px-2 py-5 text-left font-normal sm:px-4"
+                >
+                  <span class="sr-only">Feature</span>
+                </th>
+                <th
+                  scope="col"
+                  class="px-1 py-5 text-center text-lg font-medium text-primary sm:text-xl"
+                >
+                  Crisp
+                </th>
+                <th
+                  scope="col"
+                  class="px-1 py-5 text-center text-base font-medium text-foreground sm:text-xl"
+                >
+                  {{ provider.name }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="value in values"
+                :key="value.name"
+                class="border-b border-primary/15"
               >
-                <a
-                  :href="`https://crisp.chat/en/alternatives/${provider.slug}/`"
-                  :aria-label="`Compare Crisp with ${provider.name}`"
-                >Learn more <ChevronRight aria-hidden="true" /></a>
-              </Button>
-            </TableCell>
-          </TableRow>
-        </TableFooter>
-      </Table>
+                <th
+                  scope="row"
+                  class="px-2 py-4 text-left font-normal sm:px-4"
+                >
+                  {{ value.name }}
+                </th>
+                <td
+                  v-for="index in [crispIndex, provider.index]"
+                  :key="index"
+                  class="px-1 py-4 text-center"
+                >
+                  <span :class="['inline-flex size-5 items-center justify-center rounded-full', value.supported[index] ? 'bg-primary text-primary-foreground' : 'bg-muted-foreground/40 text-primary-foreground']">
+                    <component
+                      :is="value.supported[index] ? Check : X"
+                      aria-hidden="true"
+                      class="size-3 stroke-3"
+                    />
+                    <span class="sr-only">{{ value.supported[index] ? 'Included' : 'Not included' }}</span>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-2 py-4 sm:px-4">
+            <p class="text-sm text-secondary-foreground sm:text-base">
+              See detailed comparison
+            </p>
+            <Button
+              as-child
+              variant="link"
+              class="min-h-11"
+            >
+              <a
+                :href="`https://crisp.chat/en/alternatives/${provider.slug}/`"
+                :aria-label="`Compare Crisp with ${provider.name}`"
+              >Learn more <ChevronRight aria-hidden="true" /></a>
+            </Button>
+          </div>
+        </TabsContent>
+      </Tabs>
+      <div class="hidden lg:block">
+        <Table class="mt-16 min-w-300 table-fixed text-base text-secondary-foreground">
+          <TableHeader>
+            <TableRow class="border-0 hover:bg-transparent">
+              <TableHead class="w-1/4">
+                <span class="sr-only">Feature</span>
+              </TableHead>
+              <TableHead
+                v-for="provider in providers"
+                :key="provider.slug"
+                scope="col"
+                class="border-b border-primary/15 px-0 py-5 text-xl font-medium text-foreground"
+              >
+                {{ provider.name }}
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow
+              v-for="value in values"
+              :key="value.name"
+              class="border-primary/15 hover:bg-transparent"
+            >
+              <TableCell class="p-4 sm:px-12">
+                {{ value.name }}
+              </TableCell>
+              <TableCell
+                v-for="(supported, index) in value.supported"
+                :key="providers[index]!.slug"
+                class="px-0 py-4"
+              >
+                <span :class="['inline-flex size-5 items-center justify-center rounded-full', supported ? 'bg-primary text-primary-foreground' : 'bg-muted-foreground/40 text-primary-foreground']">
+                  <component
+                    :is="supported ? Check : X"
+                    aria-hidden="true"
+                    class="size-3 stroke-3"
+                  />
+                  <span class="sr-only">{{ supported ? 'Included' : 'Not included' }}</span>
+                </span>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+          <TableFooter class="border-primary/15 bg-transparent font-normal">
+            <TableRow class="hover:bg-transparent">
+              <TableCell class="px-4 py-5 whitespace-nowrap sm:px-12">
+                See detailed comparison
+              </TableCell>
+              <TableCell
+                v-for="provider in providers"
+                :key="provider.slug"
+                class="px-0 py-5"
+              >
+                <Button
+                  v-if="provider.slug !== 'crisp'"
+                  as-child
+                  variant="link"
+                >
+                  <a
+                    :href="`https://crisp.chat/en/alternatives/${provider.slug}/`"
+                    :aria-label="`Compare Crisp with ${provider.name}`"
+                  >Learn more <ChevronRight aria-hidden="true" /></a>
+                </Button>
+              </TableCell>
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </div>
     </div>
   </section>
 </template>
