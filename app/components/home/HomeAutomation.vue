@@ -20,7 +20,7 @@ const tabs = [
     <div class="relative mx-auto max-w-7xl">
       <section
         aria-labelledby="magic-reply-title"
-        class="dark relative isolate rounded-2xl border-2 bg-background px-6 py-12 text-foreground sm:rounded-3xl sm:px-12 lg:py-24"
+        class="dark relative isolate z-10 rounded-2xl border-2 bg-background px-6 py-12 text-foreground sm:rounded-3xl sm:px-12 lg:py-24"
       >
         <svg
           aria-hidden="true"
@@ -110,16 +110,15 @@ const tabs = [
         >
           Leverage the power of AI<br>with <span class="bg-linear-to-r from-cyan-200 via-cyan-400 to-primary bg-clip-text text-transparent">MagicReply</span>
         </h2>
+        <img
+          :src="beeBot"
+          alt="A Crisp teammate accompanied by a flying assistant bot."
+          width="370"
+          height="379"
+          loading="lazy"
+          class="pointer-events-none absolute -bottom-28 -left-4 z-10 hidden h-auto w-64 md:block lg:-bottom-40 lg:w-92"
+        >
       </section>
-
-      <img
-        :src="beeBot"
-        alt="A Crisp teammate accompanied by a flying assistant bot."
-        width="370"
-        height="379"
-        loading="lazy"
-        class="pointer-events-none absolute top-140 left-0 z-10 hidden h-auto w-92 lg:block"
-      >
 
       <section
         aria-labelledby="workflows-title"
