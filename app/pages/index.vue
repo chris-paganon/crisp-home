@@ -9,5 +9,6 @@ useSeoMeta({
   <div>
     <HomeHero />
     <HomeGetToKnow />
+    <HomeExplore />
   </div>
 </template>
