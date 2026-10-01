@@ -61,7 +61,7 @@ const channels = [
   <div
     role="img"
     aria-label="Telegram, WhatsApp, Gmail, Instagram, and Messenger conversations come together in one shared inbox, with assigned teammates and conversation statuses."
-    class="@container relative isolate mx-auto w-full max-w-112"
+    class="@container relative isolate mx-auto w-full max-w-md"
   >
     <div aria-hidden="true">
       <div class="absolute inset-x-0 top-0 bottom-10 -z-10 flex justify-center @sm:bottom-14">
