@@ -132,8 +132,6 @@ const tabs = [
         <img
           :src="diagram"
           alt="An automated bot workflow branches into Tech and Sales, then sends the customer to the relevant team."
-          width="1492"
-          height="1022"
           loading="lazy"
           class="mx-auto h-auto w-full max-w-188"
         >
