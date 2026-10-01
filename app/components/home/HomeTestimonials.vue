@@ -85,7 +85,7 @@ const columns: Testimonial[][] = [
             </a>
             <figure
               v-else
-              :class="['rounded-md border border-border p-6', card.type === 'quote' ? 'bg-card text-center' : 'bg-background']"
+              :class="['rounded-md border border-border p-6', card.type === 'quote' ? 'bg-card text-center' : 'bg-background', index === 0 && cardIndex === 1 ? 'max-md:-order-1' : '']"
             >
               <figcaption
                 v-if="card.type === 'person'"
