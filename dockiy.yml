@@ -1,11 +1,12 @@
 name: crisp-home
+
 images:
     - app
 environments:
     default:
         host: crisp.chrispaganon.com
         compose_file: docker-compose.yml
-        secrets_file: .enc.production.env
+
 hooks:
     build: scripts/build.sh
     start: scripts/start.sh
