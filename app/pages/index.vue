@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: "Crisp",
+  title: "The AI Customer Support Platform for every Business - Crisp",
   description: "Customer Support",
 });
 </script>
