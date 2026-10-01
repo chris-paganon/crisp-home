@@ -6,5 +6,5 @@ useSeoMeta({
 </script>
 
 <template>
-  <div />
+  <HomeHero />
 </template>
