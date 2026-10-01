@@ -46,7 +46,7 @@ const tabs = [
         />
         <Tabs
           default-value="reply"
-          class="mx-auto max-w-168"
+          class="mx-auto max-w-2xl"
         >
           <div class="overflow-x-auto pb-2">
             <TabsList

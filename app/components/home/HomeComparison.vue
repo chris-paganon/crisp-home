@@ -34,7 +34,7 @@ const values = [
           loading="lazy"
           class="mx-auto mb-8 h-auto w-full max-w-100 lg:absolute lg:-top-32 lg:right-0 lg:mb-0 lg:w-116 lg:max-w-none"
         >
-        <div class="relative lg:max-w-168">
+        <div class="relative lg:max-w-2xl">
           <h2
             id="comparison-title"
             class="text-subtitle text-blue-900 sm:text-title lg:text-5xl/14"
