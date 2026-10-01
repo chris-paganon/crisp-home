@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Archive, Clock3, Gauge, UserRound } from "lucide-vue-next";
-import inboxDiscussion from "@/assets/images/inbox-discussion.png";
 import featureBackground from "@/assets/images/get-to-know/bg-element-computer.png";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -129,14 +128,7 @@ useRafFn(({ delta }) => {
         </Accordion>
       </div>
 
-      <img
-        :src="inboxDiscussion"
-        alt="A shared inbox conversation where a customer receives a password recovery article and a follow-up support rating request."
-        width="592"
-        height="730"
-        loading="lazy"
-        class="mx-auto hidden h-auto w-full max-w-148 self-center md:block lg:mx-0 lg:w-148"
-      >
+      <HomeInboxConversation class="mx-auto hidden self-center md:block lg:mx-0 lg:w-148" />
     </div>
   </section>
 </template>
