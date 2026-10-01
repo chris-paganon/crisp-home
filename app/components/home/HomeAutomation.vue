@@ -2,7 +2,6 @@
 import { AudioLines, Languages, MessageCircle, Scissors, Workflow } from "lucide-vue-next";
 import beeBot from "@/assets/images/magic-reply/bee-bot.png";
 import customer from "@/assets/images/magic-reply/customer-service-agent-7.png";
-import diagram from "@/assets/images/workflows/diagram.png";
 import dotGrid from "@/assets/images/workflows/dot-grid.svg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -129,12 +128,7 @@ const tabs = [
           class="pointer-events-none absolute inset-0 -z-10 mask-radial-from-20% mask-radial-to-70% bg-repeat"
           :style="{ backgroundImage: `url(${dotGrid})` }"
         />
-        <img
-          :src="diagram"
-          alt="An automated bot workflow branches into Tech and Sales, then sends the customer to the relevant team."
-          loading="lazy"
-          class="mx-auto h-auto w-full max-w-188"
-        >
+        <HomeWorkflowDiagram />
         <h2
           id="workflows-title"
           class="-mt-4 text-center text-subtitle sm:text-title lg:text-5xl/14"
