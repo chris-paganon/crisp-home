@@ -57,7 +57,7 @@ const values = [
           </div>
         </div>
       </div>
-      <Table class="mt-16 min-w-200 table-fixed text-base text-secondary-foreground">
+      <Table class="mt-16 min-w-300 table-fixed text-base text-secondary-foreground">
         <TableHeader>
           <TableRow class="border-0 hover:bg-transparent">
             <TableHead class="w-1/4">
