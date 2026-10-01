@@ -25,5 +25,6 @@ useSeoMeta({
     <HomeInboxResources />
     <HomeChooseProvider />
     <HomeHowItWorks />
+    <HomeReady />
   </div>
 </template>
