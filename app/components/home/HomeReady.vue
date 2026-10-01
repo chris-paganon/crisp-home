@@ -85,7 +85,7 @@ import background from "@/assets/images/ready/ready-cta-bg.jpg";
         width="481"
         height="122"
         loading="lazy"
-        class="pointer-events-none absolute -top-8 right-0 w-4/5 sm:-top-10 sm:right-1/8 sm:w-2/5 lg:-top-15"
+        class="pointer-events-none absolute -top-10 right-1/8 hidden w-2/5 md:block lg:-top-15"
       >
       <img
         :src="customer"

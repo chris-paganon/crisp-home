@@ -126,7 +126,7 @@ useRafFn(({ delta }) => {
         width="592"
         height="730"
         loading="lazy"
-        class="mx-auto h-auto w-full max-w-148 self-center lg:mx-0 lg:w-148"
+        class="mx-auto hidden h-auto w-full max-w-148 self-center md:block lg:mx-0 lg:w-148"
       >
     </div>
   </section>
