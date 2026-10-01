@@ -1,18 +1,39 @@
 <script setup lang="ts">
+import { useIntersectionObserver } from "@vueuse/core";
+
 const id = useId();
+const diagram = useTemplateRef<SVGSVGElement>("diagram");
+const motionReady = ref(false);
+const isPlaying = ref(false);
 const branches = [
   { id: "tech", x: 0, team: "tech" },
   { id: "sales", x: 311, team: "sales" },
 ];
+
+const { isSupported } = useIntersectionObserver(diagram, ([entry]) => {
+  if (entry?.isIntersecting && entry.intersectionRatio >= 0.2) {
+    isPlaying.value = true;
+  }
+  else if (!entry?.isIntersecting) {
+    isPlaying.value = false;
+  }
+}, { threshold: [0, 0.2] });
+
+// Keep the complete diagram visible during SSR and without observer support.
+onMounted(() => {
+  motionReady.value = isSupported.value;
+});
 </script>
 
 <template>
   <!-- The viewBox preserves the original illustration's geometry at every size. -->
   <svg
+    ref="diagram"
     role="img"
     :aria-labelledby="`${id}-title ${id}-description`"
     viewBox="0 0 746 510"
     class="mx-auto h-auto w-full max-w-188 font-sans"
+    :class="{ 'motion-ready': motionReady, 'is-playing': isPlaying }"
   >
     <title :id="`${id}-title`">An automated bot workflow</title>
     <desc :id="`${id}-description`">
@@ -260,3 +281,78 @@ const branches = [
     </g>
   </svg>
 </template>
+
+<style scoped>
+@media (prefers-reduced-motion: no-preference) {
+  .workflow-greeting { --delay: 0.1s; }
+  .workflow-branches { --delay: 0.85s; }
+  .workflow-actions { --delay: 1.55s; }
+  .workflow-reply-lines { --delay: 2.25s; }
+  .workflow-replies { --delay: 2.85s; }
+
+  .motion-ready .workflow-node,
+  .motion-ready .workflow-connectors {
+    opacity: 0;
+  }
+
+  .workflow-node,
+  .workflow-choice {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .motion-ready.is-playing .workflow-node {
+    animation: workflow-pop 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
+  }
+
+  .motion-ready.is-playing .workflow-connectors {
+    animation: workflow-appear 0.1s linear var(--delay) both;
+  }
+
+  .motion-ready.is-playing .workflow-line {
+    stroke-dasharray: 1;
+    animation: workflow-draw 0.65s ease-in-out var(--delay) both;
+  }
+
+  .motion-ready.is-playing .workflow-arrow {
+    animation: workflow-appear 0.15s ease-out calc(var(--delay) + 0.6s) both;
+  }
+
+  .motion-ready.is-playing .workflow-choice {
+    animation: workflow-tap 0.45s ease-in-out 0.65s both;
+  }
+
+  .motion-ready.is-playing .workflow-choice + .workflow-choice {
+    animation-delay: 0.85s;
+  }
+}
+
+@keyframes workflow-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.9);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(0) scale(1.035);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes workflow-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes workflow-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes workflow-tap {
+  50% { transform: scale(0.94); }
+}
+</style>
