@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import heroBackground from "@/assets/images/hero-bg.png";
-import heroComposition from "@/assets/images/hero-featured-composition.png";
-import heroInterface from "@/assets/images/hero-ui-elements.svg";
+import heroBackground from "@/assets/images/hero/hero-bg.png";
+import heroComposition from "@/assets/images/hero/hero-featured-composition.png";
+import heroInterface from "@/assets/images/hero/hero-ui-elements.svg";
 </script>
 
 <template>
