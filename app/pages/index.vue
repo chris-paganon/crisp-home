@@ -14,5 +14,6 @@ useSeoMeta({
     <HomeTeamCapabilities />
     <HomeExperiences />
     <HomeSpecificNeeds />
+    <HomeAutomation />
   </div>
 </template>
