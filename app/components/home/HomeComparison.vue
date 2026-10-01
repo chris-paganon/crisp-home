@@ -162,7 +162,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
         </TabsContent>
       </Tabs>
       <div class="hidden lg:block">
-        <Table class="mt-16 min-w-300 table-fixed text-base text-secondary-foreground">
+        <Table class="mt-16 min-w-0 table-fixed text-sm text-secondary-foreground xl:min-w-300 xl:text-base">
           <TableHeader>
             <TableRow class="border-0 hover:bg-transparent">
               <TableHead class="w-1/4">
@@ -172,7 +172,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
                 v-for="provider in providers"
                 :key="provider.slug"
                 scope="col"
-                class="border-b border-primary/15 px-0 py-5 text-xl font-medium text-foreground"
+                class="border-b border-primary/15 px-0 py-5 text-lg font-medium text-foreground xl:text-xl"
               >
                 {{ provider.name }}
               </TableHead>
@@ -184,7 +184,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
               :key="value.name"
               class="border-primary/15 hover:bg-transparent"
             >
-              <TableCell class="p-4 sm:px-12">
+              <TableCell class="p-4 xl:px-12">
                 {{ value.name }}
               </TableCell>
               <TableCell
@@ -205,7 +205,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
           </TableBody>
           <TableFooter class="border-primary/15 bg-transparent font-normal">
             <TableRow class="hover:bg-transparent">
-              <TableCell class="px-4 py-5 whitespace-nowrap sm:px-12">
+              <TableCell class="px-4 py-5 whitespace-nowrap xl:px-12">
                 See detailed comparison
               </TableCell>
               <TableCell
@@ -217,6 +217,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
                   v-if="provider.slug !== 'crisp'"
                   as-child
                   variant="link"
+                  class="text-sm xl:text-base"
                 >
                   <a
                     :href="`https://crisp.chat/en/alternatives/${provider.slug}/`"
