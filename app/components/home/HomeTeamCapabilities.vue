@@ -15,7 +15,7 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/comp
     class="bg-background px-6 pt-12 pb-16 lg:px-8 lg:pt-32 lg:pb-28"
   >
     <div class="mx-auto max-w-7xl">
-      <div class="mb-8 text-center md:pb-12 lg:mb-20">
+      <div class="mb-8 text-center md:pb-12">
         <Badge variant="outline">
           <UsersRound
             aria-hidden="true"
