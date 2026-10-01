@@ -33,7 +33,7 @@ services:
       - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.rule=Host(`${DOCKIY_APP_HOST:?DOCKIY_APP_HOST is required}`)"
       - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.entrypoints=websecure"
       - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.tls=true"
-      - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.tls.certresolver=dockiy"
+      - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.tls.certresolver=nuxter"
       - "traefik.http.routers.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.service=${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}"
       - "traefik.http.services.${DOCKIY_COMPOSE_PROJECT_NAME:?DOCKIY_COMPOSE_PROJECT_NAME is required}.loadbalancer.server.port=3000"
     logging:
