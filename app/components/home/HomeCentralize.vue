@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ChevronRight, Layers, Plus } from "lucide-vue-next";
+import sparkleLeft from "@/assets/images/customers/sparkle-left.png";
+import sparkleRight from "@/assets/images/customers/sparkle-right.png";
 import crispLogoRound from "@/assets/images/logo-round.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,11 +18,6 @@ const channels = [
   { name: "Chat Widget", icon: crispLogoRound, href: "https://crisp.chat/en/livechat/" },
   { name: "SMS Inbox", icon: channelIcons.sms, href: "https://crisp.chat/en/integrations/twilio/" },
 ];
-
-const sparkles = [
-  [12, 30], [72, 60], [132, 30], [192, 0],
-  [102, 120], [42, 150], [162, 180], [72, 210],
-] as const;
 </script>
 
 <template>
@@ -30,22 +27,24 @@ const sparkles = [
   >
     <div class="mx-auto max-w-7xl">
       <div class="relative mb-10 text-center md:mb-16">
-        <svg
-          v-for="side in ['left', 'right']"
-          :key="side"
-          viewBox="0 0 204 240"
-          fill="none"
+        <img
+          :src="sparkleLeft"
+          alt=""
           aria-hidden="true"
-          class="pointer-events-none absolute top-0 hidden h-60 w-50 stroke-border md:block"
-          :class="side === 'left' ? 'left-0' : 'right-0 -scale-x-100'"
+          width="234"
+          height="234"
+          loading="lazy"
+          class="pointer-events-none absolute top-0 left-0 hidden size-60 md:block"
         >
-          <path
-            v-for="[x, y] in sparkles"
-            :key="`${x}-${y}`"
-            d="M-5 0H5M0-5V5"
-            :transform="`translate(${x} ${y + 6})`"
-          />
-        </svg>
+        <img
+          :src="sparkleRight"
+          alt=""
+          aria-hidden="true"
+          width="234"
+          height="234"
+          loading="lazy"
+          class="pointer-events-none absolute top-0 right-0 hidden size-60 md:block"
+        >
 
         <Badge variant="outline">
           <Layers

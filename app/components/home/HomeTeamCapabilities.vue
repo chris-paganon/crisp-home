@@ -7,21 +7,6 @@ import voiceNoteBackground from "@/assets/images/team-capabilities/voice-note-bg
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-
-const features = [
-  {
-    id: "reminders",
-    title: "Reminders",
-    description: "Never miss a follow-up with your leads or customers.",
-    href: "https://help.crisp.chat/en/article/how-do-reminders-work-q9ljb8/",
-  },
-  {
-    id: "voice-note",
-    title: "Voice note",
-    description: "Lorem ipsum dolor sit amet consectetur. Ac lectus magna erat viverra id a pellentesque.",
-    href: "https://crisp.chat/en/shared-inbox/",
-  },
-];
 </script>
 
 <template>
@@ -49,14 +34,12 @@ const features = [
 
       <div class="mx-auto grid max-w-300 gap-6 lg:grid-cols-[2fr_1fr] lg:gap-8">
         <Card
-          v-for="feature in features"
-          :key="feature.id"
           class="gap-0 overflow-hidden py-0 sm:grid sm:grid-cols-2 sm:items-center lg:h-64"
         >
           <div class="space-y-7 py-10">
             <CardHeader class="gap-2">
-              <CardTitle>{{ feature.title }}</CardTitle>
-              <CardDescription>{{ feature.description }}</CardDescription>
+              <CardTitle>Reminders</CardTitle>
+              <CardDescription>Never miss a follow-up with your leads or customers.</CardDescription>
             </CardHeader>
             <CardFooter>
               <Button
@@ -64,8 +47,8 @@ const features = [
                 variant="link"
               >
                 <a
-                  :href="feature.href"
-                  :aria-label="`Learn more about ${feature.title.toLowerCase()}`"
+                  href="https://help.crisp.chat/en/article/how-do-reminders-work-q9ljb8/"
+                  aria-label="Learn more about reminders"
                 >
                   Learn more
                   <ChevronRight aria-hidden="true" />
@@ -75,7 +58,6 @@ const features = [
           </div>
 
           <img
-            v-if="feature.id === 'reminders'"
             :src="reminders"
             alt="A private follow-up note with a reminder scheduled for tomorrow at the same time."
             width="384"
@@ -83,8 +65,33 @@ const features = [
             loading="lazy"
             class="mx-auto h-auto w-full max-w-96 self-end"
           >
+        </Card>
+
+        <Card class="gap-0 overflow-hidden py-0 sm:grid sm:grid-cols-2 sm:items-center lg:h-64">
+          <div class="space-y-7 py-10">
+            <CardHeader class="gap-2">
+              <CardTitle>Voice note</CardTitle>
+              <CardDescription>
+                Lorem ipsum dolor sit amet consectetur. Ac lectus magna erat viverra id a pellentesque.
+              </CardDescription>
+            </CardHeader>
+            <CardFooter>
+              <Button
+                as-child
+                variant="link"
+              >
+                <a
+                  href="https://crisp.chat/en/shared-inbox/"
+                  aria-label="Learn more about voice note"
+                >
+                  Learn more
+                  <ChevronRight aria-hidden="true" />
+                </a>
+              </Button>
+            </CardFooter>
+          </div>
+
           <div
-            v-else
             class="relative mx-auto flex h-36 w-full max-w-96 items-center sm:h-64"
           >
             <img
