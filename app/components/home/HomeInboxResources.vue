@@ -18,7 +18,7 @@ const competitors = ["front", "hiver", "zendesk", "intercom"];
           :src="illustration"
           alt="A shared inbox brings messaging channels, customer details, and team conversations together."
           loading="lazy"
-          class="mx-auto h-auto w-full max-w-140"
+          class="mx-auto h-auto w-full max-w-140 mask-b-from-90% mask-b-to-100%"
         >
         <div class="text-chart-3 lg:pr-10">
           <h2 class="text-subtitle sm:text-3xl/9">
