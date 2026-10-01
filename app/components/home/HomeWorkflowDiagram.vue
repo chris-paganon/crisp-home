@@ -1,27 +1,28 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from "@vueuse/core";
-
 const id = useId();
 const diagram = useTemplateRef<SVGSVGElement>("diagram");
 const motionReady = ref(false);
-const isPlaying = ref(false);
+const isVisible = useElementVisibility(diagram);
+const documentVisibility = useDocumentVisibility();
+const reducedMotion = usePreferredReducedMotion();
+
+const cycleDuration = 4500;
+const elapsed = ref(0);
 const branches = [
   { id: "tech", x: 0, team: "tech" },
   { id: "sales", x: 311, team: "sales" },
 ];
 
-const { isSupported } = useIntersectionObserver(diagram, ([entry]) => {
-  if (entry?.isIntersecting && entry.intersectionRatio >= 0.2) {
-    isPlaying.value = true;
-  }
-  else if (!entry?.isIntersecting) {
-    isPlaying.value = false;
-  }
-}, { threshold: [0, 0.2] });
+// Advance only while visible, preserving the current point when scrolled away.
+useRafFn(({ delta }) => {
+  if (!isVisible.value || documentVisibility.value !== "visible" || reducedMotion.value === "reduce") return;
+
+  elapsed.value = (elapsed.value + Math.min(delta, 100)) % cycleDuration;
+});
 
 // Keep the complete diagram visible during SSR and without observer support.
 onMounted(() => {
-  motionReady.value = isSupported.value;
+  motionReady.value = typeof IntersectionObserver !== "undefined";
 });
 </script>
 
@@ -33,7 +34,8 @@ onMounted(() => {
     :aria-labelledby="`${id}-title ${id}-description`"
     viewBox="0 0 746 510"
     class="mx-auto h-auto w-full max-w-188 font-sans"
-    :class="{ 'motion-ready': motionReady, 'is-playing': isPlaying }"
+    :class="{ 'motion-ready': motionReady }"
+    :style="{ '--workflow-time': elapsed, '--workflow-cycle': cycleDuration }"
   >
     <title :id="`${id}-title`">An automated bot workflow</title>
     <desc :id="`${id}-description`">
@@ -284,75 +286,28 @@ onMounted(() => {
 
 <style scoped>
 @media (prefers-reduced-motion: no-preference) {
-  .workflow-greeting { --delay: 0.1s; }
-  .workflow-branches { --delay: 0.85s; }
-  .workflow-actions { --delay: 1.55s; }
-  .workflow-reply-lines { --delay: 2.25s; }
-  .workflow-replies { --delay: 2.85s; }
+  .workflow-greeting { --start: 0; }
+  .workflow-branches { --start: 350; --draw-duration: 550; }
+  .workflow-actions { --start: 950; }
+  .workflow-reply-lines { --start: 1250; --draw-duration: 500; }
+  .workflow-replies { --start: 1800; }
 
   .motion-ready .workflow-node,
   .motion-ready .workflow-connectors {
-    opacity: 0;
+    /* Fade in place, hold the complete workflow, then fade out together. */
+    opacity: min(
+      clamp(0, calc((var(--workflow-time) - var(--start)) / 250), 1),
+      clamp(0, calc((var(--workflow-cycle) - var(--workflow-time)) / 300), 1)
+    );
   }
 
-  .workflow-node,
-  .workflow-choice {
-    transform-box: fill-box;
-    transform-origin: center;
-  }
-
-  .motion-ready.is-playing .workflow-node {
-    animation: workflow-pop 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) var(--delay) both;
-  }
-
-  .motion-ready.is-playing .workflow-connectors {
-    animation: workflow-appear 0.1s linear var(--delay) both;
-  }
-
-  .motion-ready.is-playing .workflow-line {
+  .motion-ready .workflow-line {
     stroke-dasharray: 1;
-    animation: workflow-draw 0.65s ease-in-out var(--delay) both;
+    stroke-dashoffset: calc(1 - clamp(0, calc((var(--workflow-time) - var(--start)) / var(--draw-duration)), 1));
   }
 
-  .motion-ready.is-playing .workflow-arrow {
-    animation: workflow-appear 0.15s ease-out calc(var(--delay) + 0.6s) both;
+  .motion-ready .workflow-arrow {
+    opacity: clamp(0, calc((var(--workflow-time) - var(--start) - var(--draw-duration) + 100) / 100), 1);
   }
-
-  .motion-ready.is-playing .workflow-choice {
-    animation: workflow-tap 0.45s ease-in-out 0.65s both;
-  }
-
-  .motion-ready.is-playing .workflow-choice + .workflow-choice {
-    animation-delay: 0.85s;
-  }
-}
-
-@keyframes workflow-pop {
-  0% {
-    opacity: 0;
-    transform: translateY(-1rem) scale(0.9);
-  }
-  65% {
-    opacity: 1;
-    transform: translateY(0) scale(1.035);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes workflow-appear {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes workflow-draw {
-  from { stroke-dashoffset: 1; }
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes workflow-tap {
-  50% { transform: scale(0.94); }
 }
 </style>
