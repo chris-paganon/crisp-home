@@ -10,5 +10,6 @@ useSeoMeta({
     <HomeHero />
     <HomeGetToKnow />
     <HomeExplore />
+    <HomeCentralize />
   </div>
 </template>
