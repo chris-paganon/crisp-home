@@ -162,7 +162,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
         </TabsContent>
       </Tabs>
       <div class="hidden lg:block">
-        <Table class="mt-16 min-w-0 table-fixed text-sm text-secondary-foreground xl:min-w-300 xl:text-base">
+        <Table class="mt-16 min-w-0 table-fixed text-sm text-secondary-foreground xl:min-w-282 xl:text-base">
           <TableHeader>
             <TableRow class="border-0 hover:bg-transparent">
               <TableHead class="w-1/4">
@@ -184,7 +184,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
               :key="value.name"
               class="border-primary/15 hover:bg-transparent"
             >
-              <TableCell class="p-4 xl:px-12">
+              <TableCell class="p-4 text-lg xl:px-10">
                 {{ value.name }}
               </TableCell>
               <TableCell
@@ -205,7 +205,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
           </TableBody>
           <TableFooter class="border-primary/15 bg-transparent font-normal">
             <TableRow class="hover:bg-transparent">
-              <TableCell class="px-4 py-5 whitespace-nowrap xl:px-12">
+              <TableCell class="px-4 py-5 text-base whitespace-nowrap xl:px-10 xl:text-lg">
                 See detailed comparison
               </TableCell>
               <TableCell
@@ -217,7 +217,7 @@ const crispIndex = providers.findIndex(provider => provider.slug === "crisp");
                   v-if="provider.slug !== 'crisp'"
                   as-child
                   variant="link"
-                  class="text-sm xl:text-base"
+                  class="text-base xl:text-lg"
                 >
                   <a
                     :href="`https://crisp.chat/en/alternatives/${provider.slug}/`"
