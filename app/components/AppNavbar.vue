@@ -27,7 +27,7 @@ const navigation = [
 
 <template>
   <header class="absolute inset-x-0 top-0 z-30">
-    <div class="mx-auto flex h-18 max-w-7xl items-center gap-6 px-6 lg:h-10 lg:gap-7 lg:px-8">
+    <div class="mx-auto flex h-18 max-w-7xl items-center gap-6 px-6 py-10 lg:h-10 lg:gap-7">
       <NuxtLink
         to="/"
         class="shrink-0 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
