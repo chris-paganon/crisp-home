@@ -49,7 +49,7 @@ const sparkles = [
         <Badge variant="outline">
           <Layers
             aria-hidden="true"
-            class="size-5! fill-secondary-foreground stroke-background"
+            class="size-5!"
           />
           Centralize
         </Badge>
