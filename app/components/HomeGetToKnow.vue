@@ -29,6 +29,28 @@ const features = [
     icon: Clock3,
   },
 ];
+
+const featureDuration = 6000;
+const activeFeature = ref("productivity");
+const progress = ref(0);
+const featurePanel = useTemplateRef<HTMLDivElement>("featurePanel");
+const isVisible = useElementVisibility(featurePanel);
+const documentVisibility = useDocumentVisibility();
+
+watch(activeFeature, () => {
+  progress.value = 0;
+}, { flush: "sync" });
+
+useRafFn(({ delta }) => {
+  if (!isVisible.value || documentVisibility.value !== "visible") return;
+
+  progress.value += Math.min(delta, 100) / featureDuration * 100;
+
+  if (progress.value >= 100) {
+    const currentIndex = features.findIndex(feature => feature.value === activeFeature.value);
+    activeFeature.value = features[(currentIndex + 1) % features.length]!.value;
+  }
+});
 </script>
 
 <template>
@@ -37,7 +59,10 @@ const features = [
     class="bg-background py-16 lg:pt-24 lg:pb-28"
   >
     <div class="mx-auto grid max-w-320 gap-12 px-6 md:grid-cols-2 md:gap-16 lg:flex lg:justify-between lg:px-8">
-      <div class="lg:w-114 lg:shrink-0 lg:pt-6">
+      <div
+        ref="featurePanel"
+        class="lg:w-114 lg:shrink-0 lg:pt-6"
+      >
         <h2
           id="get-to-know-title"
           class="mb-10 text-title lg:mb-12 lg:text-5xl/14"
@@ -46,8 +71,8 @@ const features = [
         </h2>
 
         <Accordion
+          v-model="activeFeature"
           type="single"
-          default-value="productivity"
           class="space-y-2"
         >
           <AccordionItem
@@ -57,7 +82,10 @@ const features = [
             variant="feature"
             class="group"
           >
-            <AccordionTrigger class="gap-0 py-6 text-lg data-[state=open]:pb-2 lg:text-xl">
+            <AccordionTrigger
+              class="gap-0 py-6 text-lg data-[state=open]:pb-2 lg:text-xl"
+              @click="progress = 0"
+            >
               <span class="flex items-center gap-4">
                 <span class="flex size-7 shrink-0 items-center justify-center rounded-sm bg-linear-to-b from-background to-border text-muted-foreground group-data-[state=open]:from-background group-data-[state=open]:to-primary/15 group-data-[state=open]:text-primary">
                   <component
@@ -78,7 +106,10 @@ const features = [
                 aria-hidden="true"
                 class="mt-4 h-0.75 overflow-hidden rounded-full bg-border"
               >
-                <div class="h-full w-3/4 bg-primary" />
+                <div
+                  class="size-full origin-left bg-primary"
+                  :style="{ transform: `scaleX(${progress / 100})` }"
+                />
               </div>
             </AccordionContent>
           </AccordionItem>
