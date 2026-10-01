@@ -15,7 +15,7 @@ import logoSquare from "@/assets/images/logo-square.png";
           alt="logo square"
           class="size-9 rounded-md"
         >
-        <span class="text-base">Nuxt + DockIY</span>
+        <span class="text-base">Crisp</span>
       </NuxtLink>
 
       <div class="flex items-center gap-2">
@@ -25,15 +25,6 @@ import logoSquare from "@/assets/images/logo-square.png";
         >
           <a href="https://dockiy.com/guide/">
             Docs
-          </a>
-        </UiButton>
-        <UiButton as-child>
-          <a
-            href="https://codeberg.org/chris-paganon/dockiy-nuxt"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Source
           </a>
         </UiButton>
       </div>
