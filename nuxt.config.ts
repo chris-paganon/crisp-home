@@ -7,7 +7,23 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      link: [{ rel: "icon", href: "/favicon.ico" }],
+      link: [
+        { rel: "icon", href: "/favicon.ico" },
+        {
+          rel: "preload",
+          href: "/fonts/aeonikpro/aeonikpro_regular.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+        {
+          rel: "preload",
+          href: "/fonts/aeonikpro/aeonikpro_medium.woff2",
+          as: "font",
+          type: "font/woff2",
+          crossorigin: "anonymous",
+        },
+      ],
     },
   },
   css: ["~/assets/css/tailwind.css"],
