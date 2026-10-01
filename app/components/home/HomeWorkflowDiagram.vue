@@ -8,10 +8,22 @@ const reducedMotion = usePreferredReducedMotion();
 
 const cycleDuration = 4500;
 const elapsed = ref(0);
+const revealClasses = "opacity-0 transition-opacity duration-250 ease-out data-[visible=true]:opacity-100 motion-reduce:opacity-100 motion-reduce:transition-none";
 const branches = [
   { id: "tech", x: 0, team: "tech" },
   { id: "sales", x: 311, team: "sales" },
 ];
+
+function isStepVisible(start: number) {
+  return !motionReady.value || reducedMotion.value === "reduce"
+    || (elapsed.value >= start && elapsed.value < cycleDuration - 300);
+}
+
+function connectionOffset(start: number, duration: number) {
+  if (!motionReady.value || reducedMotion.value === "reduce") return 0;
+
+  return 1 - Math.min(Math.max((elapsed.value - start) / duration, 0), 1);
+}
 
 // Advance only while visible, preserving the current point when scrolled away.
 useRafFn(({ delta }) => {
@@ -34,8 +46,6 @@ onMounted(() => {
     :aria-labelledby="`${id}-title ${id}-description`"
     viewBox="0 0 746 510"
     class="mx-auto h-auto w-full max-w-188 font-sans"
-    :class="{ 'motion-ready': motionReady }"
-    :style="{ '--workflow-time': elapsed, '--workflow-cycle': cycleDuration }"
   >
     <title :id="`${id}-title`">An automated bot workflow</title>
     <desc :id="`${id}-description`">
@@ -130,22 +140,6 @@ onMounted(() => {
           class="fill-foreground"
         >Sales</text>
       </g>
-    </g>
-
-    <g class="workflow-connectors workflow-branches">
-      <path
-        v-for="branch in branches"
-        :key="branch.id"
-        :d="`M373 164V181Q373 194 ${branch.x === 0 ? 360 : 386} 194H${217 + branch.x + (branch.x === 0 ? 13 : -13)}Q${217 + branch.x} 194 ${217 + branch.x} 207V222`"
-        pathLength="1"
-        fill="none"
-        stroke-width="2.5"
-        class="workflow-line stroke-muted-foreground/50"
-      />
-      <path
-        d="M212 217L217 224L222 217M523 217L528 224L533 217"
-        class="workflow-arrow fill-muted-foreground/50"
-      />
       <circle
         cx="373"
         cy="164"
@@ -154,7 +148,35 @@ onMounted(() => {
       />
     </g>
 
-    <g class="workflow-node workflow-actions">
+    <g
+      class="workflow-connectors workflow-branches"
+      :class="revealClasses"
+      :data-visible="isStepVisible(350)"
+    >
+      <path
+        v-for="branch in branches"
+        :key="branch.id"
+        :d="`M373 164V181Q373 194 ${branch.x === 0 ? 360 : 386} 194H${217 + branch.x + (branch.x === 0 ? 13 : -13)}Q${217 + branch.x} 194 ${217 + branch.x} 207V222`"
+        pathLength="1"
+        stroke-dasharray="1"
+        :stroke-dashoffset="connectionOffset(350, 550)"
+        fill="none"
+        stroke-width="2.5"
+        class="workflow-line stroke-muted-foreground/50"
+      />
+      <path
+        d="M212 217L217 224L222 217M523 217L528 224L533 217"
+        class="workflow-arrow fill-muted-foreground/50"
+        :class="revealClasses"
+        :data-visible="isStepVisible(800)"
+      />
+    </g>
+
+    <g
+      class="workflow-node workflow-actions"
+      :class="revealClasses"
+      :data-visible="isStepVisible(950)"
+    >
       <g
         v-for="branch in branches"
         :key="branch.id"
@@ -212,7 +234,11 @@ onMounted(() => {
       </g>
     </g>
 
-    <g class="workflow-connectors workflow-reply-lines">
+    <g
+      class="workflow-connectors workflow-reply-lines"
+      :class="revealClasses"
+      :data-visible="isStepVisible(1250)"
+    >
       <g
         v-for="branch in branches"
         :key="branch.id"
@@ -221,6 +247,8 @@ onMounted(() => {
         <path
           d="M217 285V338"
           pathLength="1"
+          stroke-dasharray="1"
+          :stroke-dashoffset="connectionOffset(1250, 500)"
           fill="none"
           stroke-width="2.5"
           class="workflow-line stroke-muted-foreground/50"
@@ -228,6 +256,8 @@ onMounted(() => {
         <path
           d="M212 333L217 341L222 333"
           class="workflow-arrow fill-muted-foreground/50"
+          :class="revealClasses"
+          :data-visible="isStepVisible(1650)"
         />
         <circle
           cx="217"
@@ -238,7 +268,11 @@ onMounted(() => {
       </g>
     </g>
 
-    <g class="workflow-node workflow-replies">
+    <g
+      class="workflow-node workflow-replies"
+      :class="revealClasses"
+      :data-visible="isStepVisible(1800)"
+    >
       <g
         v-for="branch in branches"
         :key="branch.id"
@@ -283,31 +317,3 @@ onMounted(() => {
     </g>
   </svg>
 </template>
-
-<style scoped>
-@media (prefers-reduced-motion: no-preference) {
-  .workflow-greeting { --start: 0; }
-  .workflow-branches { --start: 350; --draw-duration: 550; }
-  .workflow-actions { --start: 950; }
-  .workflow-reply-lines { --start: 1250; --draw-duration: 500; }
-  .workflow-replies { --start: 1800; }
-
-  .motion-ready .workflow-node,
-  .motion-ready .workflow-connectors {
-    /* Fade in place, hold the complete workflow, then fade out together. */
-    opacity: min(
-      clamp(0, calc((var(--workflow-time) - var(--start)) / 250), 1),
-      clamp(0, calc((var(--workflow-cycle) - var(--workflow-time)) / 300), 1)
-    );
-  }
-
-  .motion-ready .workflow-line {
-    stroke-dasharray: 1;
-    stroke-dashoffset: calc(1 - clamp(0, calc((var(--workflow-time) - var(--start)) / var(--draw-duration)), 1));
-  }
-
-  .motion-ready .workflow-arrow {
-    opacity: clamp(0, calc((var(--workflow-time) - var(--start) - var(--draw-duration) + 100) / 100), 1);
-  }
-}
-</style>
