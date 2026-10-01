@@ -1,5 +1,7 @@
 # Crisp Home Assignment
 
+Deployed at: https://crisp.chrispaganon.com
+
 ## Setup
 
 Install dependencies and start Nuxt:
