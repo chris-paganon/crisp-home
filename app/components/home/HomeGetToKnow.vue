@@ -5,26 +5,26 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 const features = [
   {
-    value: "productivity",
+    id: "productivity",
     title: "More productivity",
     description: "All your channels and inbound messages in one unified inbox.",
     icon: Gauge,
   },
   // TODO: Replace AI Generated descriptions below
   {
-    value: "customization",
+    id: "customization",
     title: "More customization",
     description: "Adapt your shared inbox to the way your team works.",
     icon: Archive,
   },
   {
-    value: "personalization",
+    id: "personalization",
     title: "More personalization",
     description: "Keep the context you need for every customer conversation.",
     icon: UserRound,
   },
   {
-    value: "time",
+    id: "time",
     title: "More time",
     description: "Automate repetitive tasks so your team can spend more time helping customers.",
     icon: Clock3,
@@ -33,23 +33,26 @@ const features = [
 
 const featureDuration = 6000;
 const activeFeature = ref("productivity");
+const currentIndex = computed(() => {
+  return features.findIndex(feature => feature.id === activeFeature.value);
+});
+
 const progress = ref(0);
 const featurePanel = useTemplateRef<HTMLDivElement>("featurePanel");
 const isVisible = useElementVisibility(featurePanel);
-const documentVisibility = useDocumentVisibility();
 
+// reset progress on click or from auto-progress below
 watch(activeFeature, () => {
   progress.value = 0;
 }, { flush: "sync" });
 
 useRafFn(({ delta }) => {
-  if (!isVisible.value || documentVisibility.value !== "visible") return;
+  if (!isVisible.value) return;
 
   progress.value += Math.min(delta, 100) / featureDuration * 100;
 
   if (progress.value >= 100) {
-    const currentIndex = features.findIndex(feature => feature.value === activeFeature.value);
-    activeFeature.value = features[(currentIndex + 1) % features.length]!.value;
+    activeFeature.value = features[(currentIndex.value + 1) % features.length]!.id;
   }
 });
 </script>
@@ -78,8 +81,8 @@ useRafFn(({ delta }) => {
         >
           <AccordionItem
             v-for="feature in features"
-            :key="feature.value"
-            :value="feature.value"
+            :key="feature.id"
+            :value="feature.id"
             variant="feature"
             class="group"
           >
