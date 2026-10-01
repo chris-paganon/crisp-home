@@ -54,7 +54,7 @@ const navigation = [
           >
             <template v-if="item.children">
               <UiNavigationMenuTrigger>{{ item.label }}</UiNavigationMenuTrigger>
-              <UiNavigationMenuContent class="w-56 p-3">
+              <UiNavigationMenuContent class="w-56 p-3 md:w-56">
                 <UiNavigationMenuLink
                   v-for="child in item.children"
                   :key="child.label"
